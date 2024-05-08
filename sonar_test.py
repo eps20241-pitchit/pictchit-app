@@ -6,7 +6,7 @@ def calcular_fatorial(n):
         return n * calcular_fatorial(n-1)
 
 def main():
-    num = int(input("Digite um número inteiro positivo para calcular o fatorial: "))
+    num = int(input("Digite um número inteiro para calcular o fatorial: "))
     resultado = calcular_fatorial(num)
     print(f"O fatorial de {num} é {resultado}")
 
