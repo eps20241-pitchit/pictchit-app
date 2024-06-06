@@ -14,8 +14,8 @@ const Navbar: React.FC = () => {
       </ul>
       <div className="navbar-buttons">
         <button className="login-button">Login</button>
-        <button className="register-button">Cadastro</button>
-      </div>
+        <a href="/register" className="register-button">Cadastro</a>
+        </div>
     </nav>
   );
 };
