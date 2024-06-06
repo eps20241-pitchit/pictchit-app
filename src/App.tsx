@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 import Home from './pages/Home/home';
 import Introduction from './pages/Intro/intro';
 import Register from './pages/Register/register';
+import CreatedPitch from './pages/CreatedPitch/createdPitch';
 
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
           <Route path="/"  element={<Home/>} />
           <Route path="/introduction" element={<Introduction/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/created-pitch" element={<CreatedPitch/>}/>
         </Routes>
       </div>
     </Router>
