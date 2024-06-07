@@ -1,5 +1,27 @@
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Home from './pages/Home/home';
+import Introduction from './pages/Intro/intro';
+import Register from './pages/Register/register';
+import Pitch from './pages/Pitch/pitch';
+import { CreatePitch } from './pages/CreatePitch';
+
+
 export function App() {
   return (
-    <h1 className="bg-blue-950 text-white text-2xl">Hello Pitch It!</h1>
-  )
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/"  element={<Home/>} />
+          <Route path="/introduction" element={<Introduction/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/pitch" element={<Pitch/>}/>
+          <Route path="/create-pitch" element={<CreatePitch/>}/>
+        </Routes>
+      </div>
+    </Router>
+  );
 }
