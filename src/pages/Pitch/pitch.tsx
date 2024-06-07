@@ -1,5 +1,5 @@
 import React from "react";
-import "./createdPitch.css";
+import "./pitch.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import pitchImage from "../../assets/pitch-image.svg";
 
-const CreatedPitch: React.FC = () => {
+const Pitch: React.FC = () => {
   return (
     <div>
       <h1 style={{ fontSize: '3rem' }}>Pitchs Gerados</h1> {/* Inline style added here */}
@@ -76,4 +76,4 @@ const CreatedPitch: React.FC = () => {
   );
 };
 
-export default CreatedPitch;
+export default Pitch;
