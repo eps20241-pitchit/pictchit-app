@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import imagemPessoa from './images/pessoa.png'
 import { createUser } from '../../service/login.service';
 
