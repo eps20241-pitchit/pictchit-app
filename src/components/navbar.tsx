@@ -8,10 +8,11 @@ const Navbar: React.FC = () => {
         <img src="src/assets/logo.png" alt="Logo" />
       </div>
       <ul className="navbar-links">
-        <li><a href="/" className="active">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/introduction">Quem somos</a></li>
         <li><a href="/contato">Contato</a></li>
         <li><a href="/create-pitch">Gerar Pitch</a></li>
+        <li><a href="/pitch">Pitchs Gerados</a></li>
       </ul>
       <div className="navbar-buttons">
         <button className="login-button">Login</button>
