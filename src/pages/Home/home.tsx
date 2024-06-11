@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <button className="learn-more-button">Saiba mais</button>
       </div>
       <div className="home-image">
-        <img src="src/assets/image_home.png" alt="home Illustration" />
+        <img src="../../src/assets/image_home.png" alt="home Illustration" />
       </div>
     </div>
   );
