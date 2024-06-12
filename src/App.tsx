@@ -6,6 +6,7 @@ import Register from './pages/Register/register';
 import Pitch from './pages/Pitch/pitch';
 import { CreatePitch } from './pages/CreatePitch';
 import Login from './pages/Login/login';
+import Contact from './pages/Contact/contact';
 
 export function App() {
   return (
@@ -19,6 +20,7 @@ export function App() {
           <Route path="/pitch" element={<Pitch/>} />
           <Route path="/create-pitch" element={<CreatePitch/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/contact" element={<Contact/>} />
         </Routes>
       </div>
     </Router>
