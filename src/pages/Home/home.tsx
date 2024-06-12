@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.css';
+import imageHome from '../../assets/image_home.png';
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
         <button className="learn-more-button">Saiba mais</button>
       </div>
       <div className="home-image">
-        <img src="src/assets/image_home.png" alt="home Illustration" />
+        <img src={imageHome} alt="home Illustration" />
       </div>
     </div>
   );
