@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
       <ul className="navbar-links">
         <li><a href="/">Home</a></li>
         <li><a href="/introduction">Quem somos</a></li>
-        <li><a href="/contato">Contato</a></li>
+        <li><a href="/contact">Contato</a></li>
         <li><a href="/create-pitch">Gerar Pitch</a></li>
         <li><a href="/pitch">Pitchs Gerados</a></li>
       </ul>
