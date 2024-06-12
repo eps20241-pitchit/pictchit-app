@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
         <li><a href="/pitch">Pitchs Gerados</a></li>
       </ul>
       <div className="navbar-buttons">
-        <button className="login-button">Login</button>
+        <a href="/login" className="login-button">Login</a>
         <a href="/register" className="register-button">Cadastro</a>
         </div>
     </nav>
