@@ -23,6 +23,7 @@ const Login = () => {
         setIsLoggedIn(true); // Atualiza o estado para refletir que o usuário está logado
         saveLoggedInUser(response); 
         navigate('/pitch');
+        window.location.reload();
       } else {
         setLoginError(true); // Exibe mensagem de erro se não encontrar o usuário
       }
