@@ -1,11 +1,12 @@
 import { httpClient } from "../httpClient";
 
 export interface CompletionParams {
-  question: string;
+  projectName: string;
+  description: string;
 }
 
 export async function Create(params: CompletionParams) {
-  const { data } = await httpClient.post('https://pitchit-api.onrender.com/api/pitch/completion', params);
+  const { data } = await httpClient.post('/pitch/create', params);
 
 	return data;
 }
