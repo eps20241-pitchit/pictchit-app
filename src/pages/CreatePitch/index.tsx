@@ -45,7 +45,11 @@ export function CreatePitch() {
               <div className="mt-4"></div>
               <div className="flex w-full justify-between items-center">
                 <a href="/" className="bg-[#003366] text-white text-center font-bold text-lg w-56 rounded-full p-1">Cancelar</a>
+                {localStorage.loggedInUser?
                 <button className="bg-[#006633] text-white font-bold text-lg w-56 rounded-full p-1">Gerar</button>
+                :
+                <a href="/login" className="bg-[#808080] text-white text-center font-bold text-lg w-56 rounded-full p-1">É necessario estar logado</a>
+              }
               </div>
             </form>
           </div>
