@@ -22,10 +22,9 @@ export function useCreatePitchController() {
 
   const handleSubmit = hookFormSubmit(async (data) => {
     try {
-      const pitchDesc = "Como um CEO bem-sucedido da empresa/projeto '" + data.nome + "' desejo criar um pitch convincente de aproximadamente três minutos para destacar os pontos fortes da nossa empresa. A empresa possui a seguinte descrição:" + data.descricao + ". O pitch deve cativar a audiência desde o início, transmitindo nossa visão de forma clara e envolvente.";
-
       const response = await pitchService.Create({
-        question: pitchDesc,
+        projectName: data.nome,
+        description: data.descricao
       });
 
       alert(response.completion);
