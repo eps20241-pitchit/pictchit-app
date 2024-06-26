@@ -4,7 +4,7 @@ import { pitchService } from "../../service/pitchService";
 
 interface PitchResponse {
   id: string;
-  userId: number;
+  userId: string;
   pitchText: string;
 }
 
