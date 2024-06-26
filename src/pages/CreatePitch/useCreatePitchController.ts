@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { pitchService } from "../../service/pitchService";
-import { sendConfirmation, sendPitch} from '../../service/login.service';
+import { sendPitch} from '../../service/login.service';
 
 const schema = z.object({
   nome: z.string().min(1, { message: "Informe o nome da empresa" }),

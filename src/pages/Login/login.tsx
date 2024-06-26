@@ -16,7 +16,7 @@ const Login = () => {
 
   const saveUser = (e: React.FormEvent) => {
     e.preventDefault(); // Previne o reload da página
-    console.log(usuario);
+    console.log(usuario, isLoggedIn, loginError);
     getUser(usuario).then((response) => {
       console.log(response);
       if (response) {
