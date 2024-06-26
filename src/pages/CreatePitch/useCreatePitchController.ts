@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { pitchService } from "../../service/pitchService";
+import { sendConfirmation, sendPitch} from '../../service/login.service';
 
 const schema = z.object({
   nome: z.string().min(1, { message: "Informe o nome da empresa" }),
@@ -26,8 +27,15 @@ export function useCreatePitchController() {
         projectName: data.nome,
         description: data.descricao
       });
-
+      const x = JSON.parse(localStorage.loggedInUser)
+      console.log(x['email'])
+      const email = {
+        to: x['email'],
+        subject: 'Pitch ' + data.nome,
+        text: response.completion
+      }
       alert(response.completion);
+      sendPitch(email)
     } catch (err) {
       alert("Ocorreu um erro ao gerar o pitch. Por favor, tente novamente.");
     }
