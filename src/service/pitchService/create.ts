@@ -7,8 +7,6 @@ export interface CompletionParams {
 }
 
 export async function Create(params: CompletionParams) {
-  console.log(params);
-
   const { data } = await httpClient.post('/pitch/create', params);
 
 	return data;
