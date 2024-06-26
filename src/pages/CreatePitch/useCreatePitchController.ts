@@ -5,6 +5,7 @@ import { z } from "zod";
 import { pitchService } from "../../service/pitchService";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { sendPitch} from '../../service/login.service';
 
 const schema = z.object({
   nome: z.string().min(1, { message: "Informe o nome da empresa" }),
@@ -29,13 +30,22 @@ export function useCreatePitchController() {
     const userId = 1;
     setIsLoading(true);
     try {
-      await pitchService.Create({
+      const response = await pitchService.Create({
         userId: userId,
         projectName: data.nome,
         description: data.descricao
       });
 
       toast.success("O seu Pitch está pronto!");
+
+      const x = JSON.parse(localStorage.loggedInUser)
+      const email = {
+        to: x['email'],
+        subject: 'Pitch ' + data.nome,
+        text: response.pitchText
+      }
+
+      sendPitch(email)
     } catch (err) {
       toast.error("Ocorreu um erro ao gerar o pitch. Por favor, tente novamente.");
     } finally {
