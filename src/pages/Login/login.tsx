@@ -59,7 +59,7 @@ const Login = () => {
             </div>
             <div className="flex justify-end">
               <button type="submit" className="btn btn-cancel">
-                Login1
+                Login
               </button>
             </div>
           </form>

@@ -13,6 +13,12 @@ interface User {
     // Adicione outros campos conforme necessário
 }
 
+interface Email { 
+    to: string, 
+    subject: string, 
+    text: string
+}
+
 // Defina a interface para a resposta do servidor
 interface CreateUserResponse {
     usuario: User;
@@ -84,3 +90,45 @@ export function logout() {
 }
 
 
+
+export async function sendConfirmation(objeto: Email): Promise<CreateUserResponse | undefined> {
+    try {
+        console.log(objeto);
+        const { data } = await API.post<CreateUserResponse>(
+            "https://email-service-pzxm.onrender.com/email/send",
+            objeto
+        );
+        return data;
+    } catch (error: any) {
+        if (axios.isAxiosError(error)) {
+            console.error('Axios error:', error.message);
+            if (error.response) {
+                console.error('Response data:', error.response.data);
+                console.error('Response status:', error.response.status);
+            }
+        } else {
+            console.error('Unexpected error:', error);
+        }
+    }
+}
+
+export async function sendPitch(objeto: Email): Promise<CreateUserResponse | undefined> {
+    try {
+        console.log(objeto);
+        const { data } = await API.post<CreateUserResponse>(
+            "https://email-service-pzxm.onrender.com/email/send",
+            objeto
+        );
+        return data;
+    } catch (error: any) {
+        if (axios.isAxiosError(error)) {
+            console.error('Axios error:', error.message);
+            if (error.response) {
+                console.error('Response data:', error.response.data);
+                console.error('Response status:', error.response.status);
+            }
+        } else {
+            console.error('Unexpected error:', error);
+        }
+    }
+}

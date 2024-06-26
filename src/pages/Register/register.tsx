@@ -1,6 +1,6 @@
 import React from 'react';
 import imagemPessoa from './images/pessoa.png';
-import { createUser } from '../../service/login.service';
+import { createUser, sendConfirmation} from '../../service/login.service';
 
 const Register = () => {
   const [usuario, setUsuario] = React.useState({
@@ -14,6 +14,14 @@ const Register = () => {
     console.log(usuario);
     createUser(usuario).then((response) => {
       console.log(response);
+      const email = { 
+        to: usuario.email,
+        subject: 'Pitch It Confirmação de Cadastro',
+        text: 'Olá ' + usuario.name + '\nNos da equipe Pitch It agradecemos pelo seu cadastro, esperamos poder ajudar você na evolução de seu negocio.'
+      }
+      sendConfirmation(email).then(() => {
+        console.log("enviou")
+      })
     });
   };
 
