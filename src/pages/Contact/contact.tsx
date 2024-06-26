@@ -12,7 +12,7 @@ const Contact = () => {
           />
         </div>
         <div className="md:w-2/3 md:pl-6">
-          <h2 className="text-2xl font-bold mb-6">Contato</h2>
+          <h2 className="text-2xl font-bold mb-6 text-[#003366]">Contato</h2>
           <form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                <input

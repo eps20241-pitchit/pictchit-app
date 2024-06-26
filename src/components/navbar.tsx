@@ -3,7 +3,6 @@ import './navbar.css';
 import logo from '../assets/logo.png'
 
 const Navbar: React.FC = () => {
-  console.log(localStorage.loggedInUser)
   const teste = () => {
     localStorage.clear()
   }
@@ -16,12 +15,9 @@ const Navbar: React.FC = () => {
         <li><a href="/">Home</a></li>
         <li><a href="/introduction">Quem somos</a></li>
         <li><a href="/contact">Contato</a></li>
-        {localStorage.loggedInUser?
-        <li><a href="/create-pitch">Gerar Pitch</a></li>
-        :
-        <div></div>
-}
-        <li><a href="/pitch">Pitchs Gerados</a></li>
+        <li><a href="/pitch">Pitches Gerados</a></li>
+        {localStorage.loggedInUser && <li><a href="/create-pitch">Gerar Pitch</a></li>}
+        {localStorage.loggedInUser && <li><a href="/pitch">Pitches Gerados</a></li>}
       </ul>
       {!localStorage.loggedInUser?
       <div className="navbar-buttons">

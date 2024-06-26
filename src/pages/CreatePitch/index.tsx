@@ -1,7 +1,8 @@
+import { Spinner } from "../../components/Spinnet";
 import { useCreatePitchController } from "./useCreatePitchController"
 
 export function CreatePitch() {
-  const {register, handleSubmit, errors} = useCreatePitchController();
+  const {register, handleSubmit, errors, isLoading} = useCreatePitchController();
 
   return (
     <>
@@ -11,7 +12,9 @@ export function CreatePitch() {
 
       <div className="flex justify-center items-center w-full h-screen">
         <div className="rounded-lg h-[485px] w-[571px] bg-white p-8 shadow-xl">
-          <header className="font-normal text-5xl text-[#003366] mb-8">Gerar Pitch</header>
+          <header className="font-normal text-5xl text-[#003366] mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-[#003366]">Gerar Pitch Simples</h2>
+          </header>
           <div className="flex flex-col justify-center items-start">
             <form onSubmit={handleSubmit}>
               <label htmlFor="nome" className="text-base text-[#003366]">Nome</label>
@@ -43,13 +46,15 @@ export function CreatePitch() {
               )}
 
               <div className="mt-4"></div>
-              <div className="flex w-full justify-between items-center">
+              <div className="flex w-full justify-between items-center gap-4">
                 <a href="/" className="bg-[#003366] text-white text-center font-bold text-lg w-56 rounded-full p-1">Cancelar</a>
-                {localStorage.loggedInUser?
-                <button className="bg-[#006633] text-white font-bold text-lg w-56 rounded-full p-1">Gerar</button>
-                :
-                <a href="/login" className="bg-[#808080] text-white text-center font-bold text-lg w-56 rounded-full p-1">É necessario estar logado</a>
-              }
+                <button
+                  className="bg-[#006633] text-white font-bold text-lg w-56 rounded-full p-1 disabled:bg-slate-300 disabled:text-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+                  disabled={isLoading}
+                >
+                  {!isLoading && "Gerar"}
+                  {isLoading && <Spinner />}
+                </button>
               </div>
             </form>
           </div>

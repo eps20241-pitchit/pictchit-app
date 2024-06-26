@@ -5,7 +5,7 @@ const Introduction: React.FC = () => {
   return (
     <div>
     <div className="intro-container">
-      <h1>Quem somos</h1>
+      <h2 className="text-2xl font-bold mb-6 text-[#003366]">Quem somos</h2>
       <p>
         Somos um grupo de estudantes da Universidade de Brasília (UNB) dedicados a desenvolver soluções inovadoras no campo da tecnologia. Nosso projeto de Engenharia de Produto de Software (EPS) resume-se na criação de um meio que aproxime as empresas dos projetos desenvolvidos pelos estudantes.
       </p>
