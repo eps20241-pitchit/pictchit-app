@@ -1,7 +1,7 @@
 import { httpClient } from "../httpClient";
 
 export interface CompletionParams {
-  userId: number;
+  userId: string;
   projectName: string;
   description: string;
 }

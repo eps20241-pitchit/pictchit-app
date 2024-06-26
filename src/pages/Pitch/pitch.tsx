@@ -3,7 +3,7 @@ import { usePitchController } from "./usePitchController";
 
 interface PitchResponse {
   id: string;
-  userId: number;
+  userId: string;
   pitchText: string;
 }
 
