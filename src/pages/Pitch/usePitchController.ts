@@ -20,6 +20,8 @@ export function usePitchController() {
         setPitches(fetchedPitches);
         toast.success("Os Pitches foram carregados com sucesso!");
       } catch (err) {
+        console.log(err);
+
         toast.error("Ocorreu um erro ao carregar os Pitches. Por favor, tente novamente.");
       } finally {
         setIsLoading(false);
