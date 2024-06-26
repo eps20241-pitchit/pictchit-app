@@ -22,13 +22,24 @@ interface Email {
 // Defina a interface para a resposta do servidor
 interface CreateUserResponse {
     usuario: User;
+
 }
 
 interface GetUsersResponse {
     usuarios: User[];
+    
 }
 
-export async function createUser(objeto: User): Promise<CreateUserResponse | undefined> {
+
+interface ErrorResponse {
+    status: number;
+    message: string;
+}
+
+type CreateUserResult = CreateUserResponse | ErrorResponse;
+
+
+export async function createUser(objeto: User): Promise<CreateUserResult | undefined> {
     try {
         console.log(objeto);
         const { data } = await API.post<CreateUserResponse>(
@@ -42,6 +53,10 @@ export async function createUser(objeto: User): Promise<CreateUserResponse | und
             if (error.response) {
                 console.error('Response data:', error.response.data);
                 console.error('Response status:', error.response.status);
+                return {
+                    status: error.response.status,
+                    message: error.response.data.message || error.message,
+                };
             }
         } else {
             console.error('Unexpected error:', error);
