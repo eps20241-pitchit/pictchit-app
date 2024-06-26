@@ -1,0 +1,18 @@
+.created-pitch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 20px;
+}
