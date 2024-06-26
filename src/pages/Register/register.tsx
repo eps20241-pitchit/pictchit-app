@@ -17,31 +17,28 @@ const Register = () => {
 
   const saveUser = (e: React.FormEvent) => {
     e.preventDefault(); // Previne o reload da página
-    console.log(usuario);
     createUser(usuario).then((response) => {
-      console.log(response);
-      if(response.status == 400){
-        
+      if(response?.status == 400){
+
         setErro({status: 400})
         //alert('A senha deve ter pelo menos 8 caracteres.')
       }
-      else if(response.status == 500){
-        
+      else if(response?.status == 500){
+
         setErro({status: 500})
         //alert('A senha deve ter pelo menos 8 caracteres.')
       }
       else{
-      const email = { 
+      const email = {
         to: usuario.email,
         subject: 'Pitch It Confirmação de Cadastro',
         text: 'Olá ' + usuario.name + '\nNos da equipe Pitch It agradecemos pelo seu cadastro, esperamos poder ajudar você na evolução de seu negocio.'
       }
       sendConfirmation(email).then(() => {
-        console.log("enviou")
         setErro({status: 69})
         setTimeout(() => {
           navigate('/login');
-          
+
       }, 3000);
       })}
     });
@@ -76,18 +73,18 @@ const Register = () => {
                 className="input-field"
               />
             </div>
-            {erro.status == 400? 
+            {erro.status == 400?
             <div> A senha deve ter no minimo 8 caracteres.</div>
             :
             <div></div>
             }
-            {erro.status == 500? 
+            {erro.status == 500?
             <div> Email já esta cadastrado.</div>
             :
             <div></div>
 
             }
-            {erro.status == 69? 
+            {erro.status == 69?
             <div className=" text-green-500 text-center font-bold text-lg w-100 rounded-full p-1"> Cadastrado com sucesso!.</div>
             :
             <div></div>
