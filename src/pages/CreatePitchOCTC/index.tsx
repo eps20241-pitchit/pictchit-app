@@ -1,7 +1,4 @@
-import { useCreatePitchOCTCController } from './useCreatePitchOCTCController'
-
 export function CreatePitchOCTC() {
-  const {register, handleSubmit, errors} = useCreatePitchOCTCController();
 
   return (
     <>

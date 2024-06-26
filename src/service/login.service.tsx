@@ -13,23 +13,17 @@ interface User {
     // Adicione outros campos conforme necessário
 }
 
-interface Email { 
-    to: string, 
-    subject: string, 
+interface Email {
+    to: string,
+    subject: string,
     text: string
 }
 
 // Defina a interface para a resposta do servidor
 interface CreateUserResponse {
     usuario: User;
-
+    status: number;
 }
-
-interface GetUsersResponse {
-    usuarios: User[];
-    
-}
-
 
 interface ErrorResponse {
     status: number;
