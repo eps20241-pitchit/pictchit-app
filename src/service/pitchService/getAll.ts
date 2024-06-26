@@ -2,12 +2,15 @@ import { httpClient } from "../httpClient";
 
 interface PitchResponse {
   id: string;
-  userId: number;
+  userId: string;
   pitchText: string;
 }
 
 export async function getAll() {
-  const { data } = await httpClient.get<PitchResponse[]>('/pitch');
+  const x = JSON.parse(localStorage.loggedInUser) ?? "";
+  const userId = x.id;
+
+  const { data } = await httpClient.get<PitchResponse[]>(`/pitch/${userId}`);
 
   return data;
 }

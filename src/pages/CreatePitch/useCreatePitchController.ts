@@ -27,7 +27,9 @@ export function useCreatePitchController() {
   });
 
   const handleSubmit = hookFormSubmit(async (data) => {
-    const userId = 1;
+    const x = JSON.parse(localStorage.loggedInUser) ?? "";
+    const userId = x.id;
+
     setIsLoading(true);
     try {
       const response = await pitchService.Create({
@@ -38,7 +40,6 @@ export function useCreatePitchController() {
 
       toast.success("O seu Pitch está pronto!");
 
-      const x = JSON.parse(localStorage.loggedInUser)
       const email = {
         to: x['email'],
         subject: 'Pitch ' + data.nome,
