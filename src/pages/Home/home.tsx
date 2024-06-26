@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       <div className="home-content">
         <h1>Pitch It!</h1>
         <p>Apresentando a sua empresa para o mundo!</p>
-        <button className="learn-more-button">Saiba mais</button>
+        <a href="/introduction" className="learn-more-button">Saiba mais</a>
       </div>
       <div className="home-image">
         <img src={imageHome} alt="home Illustration" />

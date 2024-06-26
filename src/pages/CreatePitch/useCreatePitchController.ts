@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { pitchService } from "../../service/pitchService";
+import toast from "react-hot-toast";
+import { useState } from "react";
 import { sendPitch} from '../../service/login.service';
 
 const schema = z.object({
@@ -13,37 +15,48 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export function useCreatePitchController() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit: hookFormSubmit,
-    formState: { errors }
+    formState: { errors },
+
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
   const handleSubmit = hookFormSubmit(async (data) => {
+    const userId = 1;
+    setIsLoading(true);
     try {
       const response = await pitchService.Create({
+        userId: userId,
         projectName: data.nome,
         description: data.descricao
       });
+
+      toast.success("O seu Pitch está pronto!");
+
       const x = JSON.parse(localStorage.loggedInUser)
-      console.log(x['email'])
       const email = {
         to: x['email'],
         subject: 'Pitch ' + data.nome,
-        text: response.completion
+        text: response.pitchText
       }
-      alert(response.completion);
+
       sendPitch(email)
     } catch (err) {
-      alert("Ocorreu um erro ao gerar o pitch. Por favor, tente novamente.");
+      toast.error("Ocorreu um erro ao gerar o pitch. Por favor, tente novamente.");
+    } finally {
+      setIsLoading(false);
     }
   })
 
   return {
     register,
     handleSubmit,
-    errors
+    errors,
+    isLoading
   };
 }
