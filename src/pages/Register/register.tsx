@@ -1,6 +1,7 @@
 import React from 'react';
 import imagemPessoa from './images/pessoa.png';
-import { createUser } from '../../service/login.service';
+import { createUser, sendConfirmation} from '../../service/login.service';
+import { useNavigate } from 'react-router-dom'; // Import the Redirect component
 
 const Register = () => {
   const [usuario, setUsuario] = React.useState({
@@ -8,12 +9,41 @@ const Register = () => {
     email: '',
     password: '',
   });
+  const [erro, setErro] = React.useState({
+    status: 0
+  });
+
+  const navigate = useNavigate(); // Correctly get the navigate function
 
   const saveUser = (e: React.FormEvent) => {
     e.preventDefault(); // Previne o reload da página
     console.log(usuario);
     createUser(usuario).then((response) => {
       console.log(response);
+      if(response.status == 400){
+        
+        setErro({status: 400})
+        //alert('A senha deve ter pelo menos 8 caracteres.')
+      }
+      else if(response.status == 500){
+        
+        setErro({status: 500})
+        //alert('A senha deve ter pelo menos 8 caracteres.')
+      }
+      else{
+      const email = { 
+        to: usuario.email,
+        subject: 'Pitch It Confirmação de Cadastro',
+        text: 'Olá ' + usuario.name + '\nNos da equipe Pitch It agradecemos pelo seu cadastro, esperamos poder ajudar você na evolução de seu negocio.'
+      }
+      sendConfirmation(email).then(() => {
+        console.log("enviou")
+        setErro({status: 69})
+        setTimeout(() => {
+          navigate('/login');
+          
+      }, 3000);
+      })}
     });
   };
 
@@ -46,6 +76,23 @@ const Register = () => {
                 className="input-field"
               />
             </div>
+            {erro.status == 400? 
+            <div> A senha deve ter no minimo 8 caracteres.</div>
+            :
+            <div></div>
+            }
+            {erro.status == 500? 
+            <div> Email já esta cadastrado.</div>
+            :
+            <div></div>
+
+            }
+            {erro.status == 69? 
+            <div className=" text-green-500 text-center font-bold text-lg w-100 rounded-full p-1"> Cadastrado com sucesso!.</div>
+            :
+            <div></div>
+
+            }
             <div className="flex justify-between">
               <button type="button" className="btn btn-cancel">Cancelar</button>
               <button type="submit" className="btn btn-register">Registrar</button>

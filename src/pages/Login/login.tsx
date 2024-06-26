@@ -16,7 +16,7 @@ const Login = () => {
 
   const saveUser = (e: React.FormEvent) => {
     e.preventDefault(); // Previne o reload da página
-    console.log(usuario);
+    console.log(usuario, isLoggedIn, loginError);
     getUser(usuario).then((response) => {
       console.log(response);
       if (response) {
@@ -59,7 +59,7 @@ const Login = () => {
             </div>
             <div className="flex justify-end">
               <button type="submit" className="btn btn-cancel">
-                Login1
+                Login
               </button>
             </div>
           </form>
