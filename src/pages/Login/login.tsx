@@ -1,5 +1,5 @@
-import imagemLogin from '../../assets/imagem-login.svg'
-import React, { useState} from 'react';
+import imagemLogin from '../../assets/imagem-login.svg';
+import React, { useState } from 'react';
 import { getUser, saveLoggedInUser } from '../../service/login.service';
 import { useNavigate } from 'react-router-dom'; // Import the Redirect component
 
@@ -44,7 +44,7 @@ const Login = () => {
           <h2 className="text-2xl font-bold mb-6">Login</h2>
           <form className="space-y-4" onSubmit={saveUser}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-               <input
+              <input
                 onChange={(e) => setUsuario({ ...usuario, email: e.target.value })}
                 type="text"
                 placeholder="E-mail"
@@ -57,6 +57,9 @@ const Login = () => {
                 className="input-field"
               />
             </div>
+            {loginError && (
+              <div className="text-red-500 text-center">Email ou senha incorretos</div>
+            )}
             <div className="flex justify-end">
               <button type="submit" className="btn btn-cancel">
                 Login
