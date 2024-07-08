@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 
-const Chatbot = () => {
+interface HistoryItem {
+  message: string;
+  response: string;
+}
+
+const Chatbot: React.FC = () => {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
   const [minimized, setMinimized] = useState(true); // Start minimized
 
   const apiKey = import.meta.env.VITE_CHATGPT_KEY;
@@ -43,7 +48,7 @@ const Chatbot = () => {
       });
   };
 
-  const showHistory = (message, response) => {
+  const showHistory = (message: string, response: string) => {
     setHistory(prevHistory => [
       ...prevHistory,
       { message: message, response: response }
