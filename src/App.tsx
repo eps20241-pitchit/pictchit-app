@@ -15,7 +15,7 @@ export function App() {
   return (
     <>
       <Router>
-        <div>
+        <div className='bg-slate-100'>
           <Navbar />
           <Routes>
             <Route path="/"  element={<Home/>} />
@@ -23,7 +23,7 @@ export function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/pitch" element={<Pitch/>} />
             <Route path="/create-pitch" element={<CreatePitch/>} />
-            <Route path="/create-pitchoctc" element={<CreatePitchOCTC/>} />
+            <Route path="/create-pitchoctc" element={<CreatePitchOCTC />} />
             <Route path="/login" element={<Login/>} />
             <Route path="/contact" element={<Contact/>} />
           </Routes>

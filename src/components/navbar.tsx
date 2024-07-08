@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
         <li><a href="/introduction">Quem somos</a></li>
         <li><a href="/contact">Contato</a></li>
         {localStorage.loggedInUser && <li><a href="/create-pitch">Gerar Pitch</a></li>}
+        {localStorage.loggedInUser && <li><a href="/create-pitchoctc">Gerar Pitch OCTC</a></li>}
         {localStorage.loggedInUser && <li><a href="/pitch">Pitches Gerados</a></li>}
       </ul>
       {!localStorage.loggedInUser?
