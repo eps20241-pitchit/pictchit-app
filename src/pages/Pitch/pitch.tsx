@@ -12,7 +12,7 @@ const Pitch: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="h-full w-full bg-white p-8">
+      <div className="bg-white m-8 p-8 rounded-md shadow-xl">
         <header className="font-normal text-5xl text-[#003366] mb-8">
           <h2 style={{ fontSize: '3rem' }}>Pitches Gerados</h2>
         </header>
