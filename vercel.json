@@ -1,8 +1,8 @@
 {
-    "rewrites":  [
-      {"source": "/(.*)", "destination": "/"}
-    ],
-    "env": {
-      "NODE_OPTIONS": "--no-warnings"
-    }
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
+  ],
+  "env": {
+    "NODE_OPTIONS": "--no-warnings"
   }
+}
