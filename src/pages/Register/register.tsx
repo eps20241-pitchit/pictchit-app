@@ -2,6 +2,9 @@ import React from 'react';
 import imagemPessoa from './images/pessoa.png';
 import { createUser, sendConfirmation } from '../../service/login.service';
 import { useNavigate } from 'react-router-dom'; // Import the Redirect component
+import { useState } from "react";
+import { Spinner } from "../../components/Spinnet";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [usuario, setUsuario] = React.useState({
@@ -14,27 +17,33 @@ const Register = () => {
   });
 
   const navigate = useNavigate(); // Correctly get the navigate function
-
+  const [isLoading, setIsLoading] = useState(false);
   const saveUser = (e: React.FormEvent) => {
     e.preventDefault(); // Previne o reload da página
+    setIsLoading(true)
     createUser(usuario).then((response) => {
       if(response?.status === 400){
         setErro({status: 400});
+        setIsLoading(false)
       }
       else if(response?.status === 500){
         setErro({status: 500});
+        setIsLoading(false)
       }
       else {
+
+        toast.success("Conta criada com sucesso!");
+
         const email = {
           to: usuario.email,
           subject: 'Pitch It Confirmação de Cadastro',
           text: `Olá ${usuario.name}\nNós da equipe Pitch It agradecemos pelo seu cadastro, esperamos poder ajudar você na evolução de seu negócio.`
         };
         sendConfirmation(email).then(() => {
-          setErro({status: 69});
-          setTimeout(() => {
-            navigate('/login');
-          }, 3000);
+          
+          setErro({status: 69});         
+          navigate('/login');
+          
         });
       }
     });
@@ -80,7 +89,9 @@ const Register = () => {
             )}
             <div className="flex justify-between">
               <button type="button" className="btn btn-cancel">Cancelar</button>
-              <button type="submit" className="btn btn-register">Registrar</button>
+              <button type="submit" className="btn btn-register" disabled={isLoading}> 
+                  {!isLoading && "Registrar"}
+                  {isLoading && <Spinner />}</button>
             </div>
           </form>
         </div>
