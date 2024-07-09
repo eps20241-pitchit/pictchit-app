@@ -38,7 +38,7 @@ export function useCreatePitchController() {
         description: data.descricao
       });
 
-      toast.success("O seu Pitch está pronto!");
+      toast.success("O seu Pitch está pronto! Verifique a tela de Pitch Gerado");
 
       const email = {
         to: x['email'],
