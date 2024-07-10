@@ -33,7 +33,7 @@ export function useCreatePitchController() {
     setIsLoading(true);
     try {
       const response = await pitchService.Create({
-        userId: userId,
+        userId,
         projectName: data.nome,
         description: data.descricao
       });
@@ -45,8 +45,8 @@ export function useCreatePitchController() {
         subject: 'Pitch ' + data.nome,
         text: response.pitchText
       }
-
       sendPitch(email)
+      toast.success("O seu Pitch está pronto!");
     } catch (err) {
       toast.error("Ocorreu um erro ao gerar o pitch. Por favor, tente novamente.");
     } finally {
