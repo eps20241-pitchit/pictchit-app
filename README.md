@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# PitchIt App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Visão Geral
 
-Currently, two official plugins are available:
+PitchIt é uma aplicação frontend desenvolvida para facilitar a apresentação de ideias de forma envolvente. O projeto utiliza React, TypeScript e Vite para proporcionar uma interface de usuário responsiva e eficiente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- *React + TypeScript*: Aproveita o poder do TypeScript para segurança de tipos e do React para uma interface dinâmica.
+- *Vite*: Utilizado para desenvolvimento rápido com substituição de módulo a quente (HMR).
+- *Configuração ESLint*: Regras de linting personalizáveis para manter a qualidade do código.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Configuração
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Clone o repositório:
 ```
+    git clone https://github.com/eps20241-pitchit/pitchit-app
+```
+### Instale as dependências:
+```
+   npm install vite
+   npm install
+```
+   
+3. Inicie o servidor de desenvolvimento:
+```
+   npm run dev
+ ```  
+## Maquina Virtual
+```
+    sudo docker-compose up
+```
+## Estrutura de Pastas
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- *public*: Contém ativos estáticos.
+- *src*: Contém o código principal da aplicação.
+
+## Contribuição
+
+Contribuições são bem-vindas! Por favor, envie um pull request ou abra uma issue para discutir quaisquer mudanças.
+
+## Licença
+
+Este projeto é licenciado sob a Licença MIT.
+
+Para mais detalhes, visite o [repositório](https://github.com/eps20241-pitchit/pitchit-app).
